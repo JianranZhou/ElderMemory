@@ -6,7 +6,7 @@
 
 drop table if exists CommentReply;
 
-drop table if exists "Like";
+drop table if exists Likes;
 
 drop table if exists Memory;
 
@@ -34,7 +34,7 @@ create table CommentReply
 /*==============================================================*/
 /* Table: "Like"                                                */
 /*==============================================================*/
-create table "Like"
+create table Likes
 (
    LikeId               bigint not null,
    userId               bigint,
@@ -107,10 +107,10 @@ alter table CommentReply add constraint FK_Reference_6 foreign key (commentId)
 alter table CommentReply add constraint FK_Reference_7 foreign key (userId)
       references User (userId) on delete restrict on update restrict;
 
-alter table "Like" add constraint FK_Reference_8 foreign key (memoryId)
+alter table Likes add constraint FK_Reference_8 foreign key (memoryId)
       references Memory (memoryId) on delete restrict on update restrict;
 
-alter table "Like" add constraint FK_Reference_9 foreign key (userId)
+alter table Likes add constraint FK_Reference_9 foreign key (userId)
       references User (userId) on delete restrict on update restrict;
 
 alter table Memory add constraint FK_Reference_1 foreign key (userId)
